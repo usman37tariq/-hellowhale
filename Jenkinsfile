@@ -32,8 +32,8 @@ myapp.push("${env.BUILD_ID}")
 
 stage('Deploy App') {
 steps {
-sh 'cd /var/jenkins_home/workspace/Demo1 && kubectl apply -f hellowhale.yml'
-
+//sh 'cd /var/jenkins_home/workspace/Demo1 && kubectl apply -f hellowhale.yml'
+kubernetesDeploy(configs: "hellowhale.yml", kubeconfigId: "mykubeconfig")
 }
 }
 
